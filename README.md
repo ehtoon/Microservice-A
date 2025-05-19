@@ -1,6 +1,10 @@
 Clear instructions for how to programmatically REQUEST data from the microservice you implemented. Include an example call. Do not advise your teammate to use your test program or require them to, your teammate must write all of their own code.
 Request data using an html page that will request data from the microservice in server.js.
 
+Required packages:
+npm init -y
+npm install express bcrypt jsonwebtoken body-parser
+
 Example Call:    
     <h2>Register</h2>
     <input id="reg-user" placeholder="Username">
