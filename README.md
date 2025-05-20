@@ -5,7 +5,8 @@ Required packages:
 npm init -y
 npm install express bcrypt jsonwebtoken body-parser
 
-Example Call:    
+Example Call:
+
     <h2>Register</h2>
     <input id="reg-user" placeholder="Username">
     <input id="reg-pass" type="password" placeholder="Password">
@@ -16,6 +17,7 @@ Clear instructions for how to programmatically RECEIVE data from the microservic
 Receive data using html functions that will receive data from the microservice in server.js.
 
 Example Call:
+
      async function register() {
       const username = document.getElementById("reg-user").value;
       const password = document.getElementById("reg-pass").value;
