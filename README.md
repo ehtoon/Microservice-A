@@ -63,4 +63,5 @@ Example Call:
 
 UML sequence diagram showing how requesting and receiving data works. Make it detailed enough that your teammate (and your grader) will understand.
 
-![image](https://github.com/user-attachments/assets/7314a292-7dff-4893-a63a-f3a9213bc795)
+![image](https://github.com/user-attachments/assets/c3948d43-6017-4631-a4b4-7d0f46fc7c56)
+
