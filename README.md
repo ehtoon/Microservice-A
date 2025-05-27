@@ -1,5 +1,21 @@
-Clear instructions for how to programmatically REQUEST data from the microservice you implemented. Include an example call. Do not advise your teammate to use your test program or require them to, your teammate must write all of their own code.
-Request data using an html page that will request data from the microservice in server.js.
+Step 1: Register a New User (POST /register)
+You send a request to create a new user with a username and password.
+
+Request Type: POST
+
+URL: http://localhost:3000/register
+
+Step 2: Login to Get JWT Token (POST /login)
+You send the username and password again, and if valid, the server gives you a JWT token.
+
+Request Type: POST
+
+URL: http://localhost:3000/login
+
+Step 3: Access Protected Data (GET /me)
+You send a GET request with the token in the Authorization header. The server checks the token and returns your user info.
+
+Request Type: GET
 
 Required packages:
 npm init -y
@@ -13,24 +29,37 @@ Example Call:
     <button onclick="register()">Register</button>
     <p id="reg-msg"></p>
 
-Clear instructions for how to programmatically RECEIVE data from the microservice you implemented. Include an example call.
-Receive data using html functions that will receive data from the microservice in server.js.
+Step 1: Make an HTTP request (with axios .get()).
+
+Step 2: The microservice processes your request and sends back JSON data.
+
+Step 3: You access that data with response.data.
 
 Example Call:
 
-     async function register() {
-      const username = document.getElementById("reg-user").value;
-      const password = document.getElementById("reg-pass").value;
+    const axios = require('axios');
 
-      const res = await fetch('http://localhost:3000/register', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ username, password })
-      });
+    async function getUserInfo(token) {
+      try {
+        // Send GET request with Authorization header
+        const response = await axios.get('http://localhost:3000/me', {
+          headers: {
+            Authorization: `Bearer ${token}`
+      }
+        });
 
-      const data = await res.json();
-      document.getElementById("reg-msg").innerText = data.message || data.error;
+    // Receive and handle response data here
+    console.log('Received data:', response.data);  // This is the data from microservice
+
+    return response.data;  // Return it for further use
+      } catch (error) {
+    console.error('Error receiving data:', error.response?.data || error.message);
+      }
     }
+
+    // Example usage:
+    const myToken = 'your_jwt_token_here';
+    getUserInfo(myToken);
 
 UML sequence diagram showing how requesting and receiving data works. Make it detailed enough that your teammate (and your grader) will understand.
 
